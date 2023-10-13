@@ -1,0 +1,12 @@
+require("core.config")
+require("core.keymaps")
+require("plugin-setup")
+
+require("plugins.neotree")
+require("plugins.lspzero")
+require("plugins.autopairs")
+require("plugins.bufferline")
+require("plugins.comments")
+require("plugins.gitsigns")
+require("plugins.scrollbar")
+require("plugins.toggleterm")
