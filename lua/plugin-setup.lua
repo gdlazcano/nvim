@@ -3,89 +3,134 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    -- or                            , branch = '0.1.x',
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
   use({
-	  'rose-pine/neovim',
-	  as = 'rose-pine',
-	  config = function()
-		  vim.cmd('colorscheme rose-pine')
-	  end
+    'rose-pine/neovim',
+    as = 'rose-pine',
+    config = function()
+      vim.cmd('colorscheme rose-pine')
+    end
   })
 
   use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
-	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
+  use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 
-	-- git integration
-	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
+  -- git integration
+  use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
   -- Treesitter
-  use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
+  use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
   use('nvim-treesitter/playground')
 
   use('mbbill/undotree')
   use("tpope/vim-surround") -- add, delete, change surroundings
 
   -- commenting with gc
-	use("numToStr/Comment.nvim")
-	use("JoosepAlviste/nvim-ts-context-commentstring")
+  use("numToStr/Comment.nvim")
+  use("JoosepAlviste/nvim-ts-context-commentstring")
 
-  use("nvim-neo-tree/neo-tree.nvim")
-	use("MunifTanjim/nui.nvim") -- neotree dependency
-
+  -- telescope-file-browser
+  use {
+    "nvim-telescope/telescope-file-browser.nvim",
+    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+  }
   -- which key
   use({
-		"folke/which-key.nvim",
-		config = function()
-			require("which-key").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
-		end,
-	})
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup({
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      })
+    end,
+  })
 
   -- scrollbar
-	use({ "petertriho/nvim-scrollbar" })
+  use({ "petertriho/nvim-scrollbar" })
 
   -- bufferline
-	use({ "akinsho/bufferline.nvim" })
-	use({ "famiu/bufdelete.nvim" })
+  use({ "akinsho/bufferline.nvim" })
+  use({ "famiu/bufdelete.nvim" })
 
   -- toggleterm
-	use({ "akinsho/toggleterm.nvim" })
+  use({ "akinsho/toggleterm.nvim" })
 
   -- trouble
-	use({ "folke/trouble.nvim" })
+  use({ "folke/trouble.nvim" })
 
   use("nvim-tree/nvim-web-devicons")
 
   use {
-	  'VonHeikemen/lsp-zero.nvim',
-	  branch = 'v1.x',
-	  requires = {
-		  -- LSP Support
-		  {'neovim/nvim-lspconfig'},
-		  {'williamboman/mason.nvim'},
-		  {'williamboman/mason-lspconfig.nvim'},
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v1.x',
+    requires = {
+      -- LSP Support
+      { 'neovim/nvim-lspconfig' },
+      { 'williamboman/mason.nvim' },
+      { 'williamboman/mason-lspconfig.nvim' },
 
-		  -- Autocompletion
-		  {'hrsh7th/nvim-cmp'},
-		  {'hrsh7th/cmp-buffer'},
-		  {'hrsh7th/cmp-path'},
-		  {'saadparwaiz1/cmp_luasnip'},
-		  {'hrsh7th/cmp-nvim-lsp'},
-		  {'hrsh7th/cmp-nvim-lua'},
+      -- Autocompletion
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'saadparwaiz1/cmp_luasnip' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-nvim-lua' },
 
-		  -- Snippets
-		  {'L3MON4D3/LuaSnip'},
-		  {'rafamadriz/friendly-snippets'},
-	  }
+      -- Snippets
+      { 'L3MON4D3/LuaSnip' },
+      { 'rafamadriz/friendly-snippets' },
+    }
   }
 
   use("github/copilot.vim")
 
+  -- Lightspeed
+
+  use({
+    "ggandor/lightspeed.nvim",
+    config = function()
+      require("lightspeed").setup({
+        jump_to_first_match = true,
+        jump_on_partial_input_safety_timeout = 400,
+        -- This can get _really_ slow if the window has a lot of content,
+        -- turn it on only if your machine can always cope with it.
+        highlight_unique_chars = false,
+        grey_out_search_area = true,
+        match_only_the_start_of_same_char_seqs = true,
+        limit_ft_matches = 5,
+        full_inclusive_prefix_key = "<c-x>",
+      })
+    end,
+  })
+
+  use({
+    "utilyre/barbecue.nvim",
+    tag = "*",
+    requires = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    after = "nvim-web-devicons", -- keep this if you're using NvChad
+    config = function()
+      require("barbecue").setup()
+    end,
+  })
+  -- lua with packer.nvim
+  use {
+    "max397574/better-escape.nvim",
+    config = function()
+      require("better_escape").setup()
+    end,
+  }
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
 end)

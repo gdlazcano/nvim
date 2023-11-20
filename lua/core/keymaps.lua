@@ -4,9 +4,16 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true })
-vim.keymap.set("n", "<leader>e", ":NeoTreeFocusToggle<CR>")
 vim.keymap.set("n", "<leader>h", ":nohl<CR>")
 vim.keymap.set("n", "<leader>w", ":w<CR>")
+
+-- open file_browser with the path of the current buffer
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>e",
+  ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+  { noremap = true }
+)
 
 -- gitsigns
 vim.keymap.set("n", "<leader>jd", ":Gitsigns diffthis<CR>")
@@ -61,8 +68,5 @@ vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", { silent = t
 vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", { silent = true, noremap = true })
 vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", { silent = true, noremap = true })
 
--- move windows
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
+-- select all
+vim.keymap.set("n", "<C-a>", "ggVG")
