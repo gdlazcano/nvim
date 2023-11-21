@@ -7,14 +7,6 @@ vim.keymap.set("i", "jk", "<Esc>", { noremap = true })
 vim.keymap.set("n", "<leader>h", ":nohl<CR>")
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 
--- open file_browser with the path of the current buffer
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>e",
-  ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
-  { noremap = true }
-)
-
 -- gitsigns
 vim.keymap.set("n", "<leader>jd", ":Gitsigns diffthis<CR>")
 vim.keymap.set("n", "<leader>jc", ":Gitsigns setqflist<CR>")
@@ -51,12 +43,12 @@ vim.keymap.set("n", ">b", ":BufferLineMoveNext<CR>")
 vim.keymap.set("n", "<b", ":BufferLineMovePrev<CR>")
 
 vim.keymap.set("n", "<C-c>", function()
-	require("bufdelete").bufdelete(0, false)
+  require("bufdelete").bufdelete(0, false)
 end)
 
 -- comments
 vim.keymap.set("n", "<leader>/", function()
-	require("Comment.api").toggle.linewise.current()
+  require("Comment.api").toggle.linewise.current()
 end)
 
 vim.keymap.set("v", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>")
