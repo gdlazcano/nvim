@@ -8,7 +8,8 @@ return {
       hidden = true,
       direction = "float",
     })
-    local lazygit_toggle = function()
+
+    Lazygit_toggle = function()
       lazygit:toggle()
     end
 
@@ -22,7 +23,10 @@ return {
       persist_size = true,
       direction = "horizontal",
       close_on_exit = true, -- close the terminal window when the process exits
-      shell = vim.o.shell, -- change the default shell
+      shell = vim.o.shell,  -- change the default shell
     })
   end,
+  keys = {
+    { "<leader>gg", "<cmd>lua Lazygit_toggle()<CR>", desc = "Lazygit" },
+  },
 }

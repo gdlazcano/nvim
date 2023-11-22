@@ -1,8 +1,4 @@
-return { {
-  "windwp/nvim-autopairs",
-}, {
-  "nvim-treesitter/nvim-treesitter",
-},
+return {
   {
     "JoosepAlviste/nvim-ts-context-commentstring",
   },
@@ -13,16 +9,6 @@ return { {
     "nvim-tree/nvim-web-devicons"
   },
   {
-    "nvim-telescope/telescope.nvim",
-    requires = {
-      { "nvim-lua/plenary.nvim" },
-    },
-  },
-  {
-    "famiu/bufdelete.nvim"
-  }, {
-  "folke/trouble.nvim"
-}, {
-  "nvim-tree/nvim-web-devicons"
-}
+    "nvim-tree/nvim-web-devicons"
+  }
 }

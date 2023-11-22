@@ -17,7 +17,7 @@ return {
             path = 1,
           },
         },
-        lualine_x = {"searchcount"},
+        lualine_x = { "searchcount" },
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },
