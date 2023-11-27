@@ -24,6 +24,10 @@ return {
         enable = true,
         disable = {},
       },
+      autotag = {
+        enable = true,
+        disable = {},
+      },
     })
   end
 }

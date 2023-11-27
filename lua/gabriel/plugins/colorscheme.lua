@@ -1,8 +1,14 @@
--- install rose-pine
 return {
-  'rose-pine/neovim',
-  lazy = false,
-  config = function()
-    vim.cmd('colorscheme rose-pine')
-  end
+	"navarasu/onedark.nvim",
+	lazy = false,
+	config = function()
+		local onedark = require("onedark")
+
+		onedark.setup({
+			style = "darker",
+			transparent = true,
+		})
+
+		onedark.load()
+	end,
 }
