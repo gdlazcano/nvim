@@ -13,15 +13,15 @@ return {
 	},
 	keys = {
 		{
-			-- Format selected lines
-			"<leader>ww",
+			"<leader>p",
 			function()
-				require("conform").format_selection()
+				require("conform").format({ async = true, lsp_fallback = true })
 			end,
 			desc = "Format selected lines",
+			mode = { "v" },
 		},
 		{
-			"<leader>we",
+			"<leader>p",
 			function()
 				require("conform").format({ async = true, lsp_fallback = true })
 			end,
