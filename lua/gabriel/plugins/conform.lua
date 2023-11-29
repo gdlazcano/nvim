@@ -9,6 +9,8 @@ return {
 			javascript = { "prettierd" },
 			typescript = { "prettierd" },
 			cpp = { "clang-format" },
+      css = { "prettierd" },
+      html = { "prettierd" },
 		},
 	},
 	keys = {

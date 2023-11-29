@@ -30,7 +30,7 @@ return {
 	end,
 	keys = {
 		{
-			"<leader><leader>hh",
+			"<leader><leader>h",
 			function()
 				require("harpoon.ui").toggle_quick_menu()
 			end,
