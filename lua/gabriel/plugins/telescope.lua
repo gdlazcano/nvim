@@ -1,5 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
+  lazy = false,
   requires = {
     { "nvim-lua/plenary.nvim" },
   },
