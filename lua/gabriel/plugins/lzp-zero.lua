@@ -38,6 +38,9 @@ return {
 					-- go to next with tab
 					["<C-j>"] = cmp.mapping.select_next_item(),
 					["<C-k>"] = cmp.mapping.select_prev_item(),
+                    -- scroll 
+                    ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+                    ["<C-d>"] = cmp.mapping.scroll_docs(4),
 					-- enter for accepting completion
 					["<CR>"] = cmp.mapping.confirm({
 						behavior = cmp.ConfirmBehavior.Replace,
@@ -60,6 +63,8 @@ return {
 		config = function()
 			-- This is where all the LSP shenanigans will live
 			local lsp_zero = require("lsp-zero")
+            local lsp_config = require("lspconfig")
+            
 			lsp_zero.extend_lspconfig()
 
 			lsp_zero.on_attach(function(client, bufnr)
@@ -67,7 +72,7 @@ return {
 				-- to learn the available actions
 				lsp_zero.default_keymaps({ buffer = bufnr })
 			end)
-
+            
 			require("mason-lspconfig").setup({
 				ensure_installed = {},
 				handlers = {

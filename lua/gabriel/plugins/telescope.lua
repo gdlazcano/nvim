@@ -1,29 +1,35 @@
 return {
-  "nvim-telescope/telescope.nvim",
-  lazy = false,
-  requires = {
-    { "nvim-lua/plenary.nvim" },
-  },
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  },
-  keys = { {
-    "<leader>ff",
-    ":Telescope find_files<CR>",
-    desc = "Find files",
-  }
-  , {
-    "<leader>fs",
-    ":Telescope live_grep<CR>",
-    desc = "Find string",
-  }
-  , {
-    "<leader>fb",
-    ":Telescope buffers<CR>",
-    desc = "Find buffers",
-  }
-  },
-}
+	"nvim-telescope/telescope.nvim",
+	dependencies = { "nvim-lua/plenary.nvim" },
+	lazy = false,
 
+	config = function()
+		local telescope = require("telescope")
+
+		require("telescope").setup({
+			defaults = {
+				layout_strategy = "vertical",
+				layout_config = {
+					vertical = {
+						width = 0.9,
+						height = 0.9,
+						preview_height = 0.5,
+					},
+				},
+			},
+		})
+	end,
+
+	keys = {
+		{
+			"<leader>ff",
+			"<cmd>Telescope find_files<cr>",
+			desc = "Find files",
+		},
+		{
+			"<leader>fs",
+			"<cmd>Telescope live_grep<cr>",
+			desc = "Find string",
+		},
+	},
+}

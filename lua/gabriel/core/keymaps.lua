@@ -30,8 +30,8 @@ vim.keymap.set("n", "<A-=>", "<C-w>=")
 vim.keymap.set("n", "<A-l>", "<C-w>>")
 vim.keymap.set("n", "<A-h>", "<C-w><")
 
-vim.keymap.set("n", "<leader>q", ":q<CR>")
-vim.keymap.set("n", "<leader>w", ":w<CR>")
+vim.keymap.set("n", "Q", ":q<CR>")
+vim.keymap.set("n", "W", ":w<CR>")
 
 -- split windows
 vim.keymap.set("n", "<leader>s", ":split<CR>")

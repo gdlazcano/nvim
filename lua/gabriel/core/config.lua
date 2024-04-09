@@ -6,10 +6,17 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- tab settings
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.autoindent = true
+
+-- undo settings
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = vim.fn.stdpath("config") .. "/undodir"
+vim.opt.undofile = true
 
 -- search settings
 vim.opt.ignorecase = true
@@ -30,11 +37,12 @@ vim.opt.swapfile = false
 vim.opt.backspace = "indent,eol,start"
 
 vim.opt.iskeyword:append("-")
-vim.opt.clipboard = "unnamed"
+vim.opt.clipboard = "unnamedplus"
 
 vim.g.copilot_filetypes = {
-  ["markdown"] = true,
-  ["yaml"] = true,
+    ["markdown"] = true,
+    ["yaml"] = true,
+    ["templ"] = true
 }
 
 vim.o.foldcolumn = '1' -- '0' is not bad
@@ -45,5 +53,6 @@ vim.o.foldenable = true
 -- colorcolumn
 vim.opt.colorcolumn = "80"
 
--- text width
+vim.opt.scrolloff = 8
 
+vim.filetype.add({ extension = { templ = "templ" } })
