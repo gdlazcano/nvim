@@ -16,6 +16,9 @@ return {
 						preview_height = 0.5,
 					},
 				},
+        file_ignore_patterns = {
+          "node_modules"
+        }
 			},
 		})
 	end,

@@ -64,6 +64,16 @@ return {
 			-- This is where all the LSP shenanigans will live
 			local lsp_zero = require("lsp-zero")
             local lsp_config = require("lspconfig")
+
+            -- Disable inline diagnostics
+            vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+                vim.lsp.diagnostic.on_publish_diagnostics, {
+                    underline = true,
+                    virtual_text = false,
+                    signs = true,
+                    update_in_insert = false,
+                }
+            )
             
 			lsp_zero.extend_lspconfig()
 

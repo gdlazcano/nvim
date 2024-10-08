@@ -7,12 +7,11 @@ vim.keymap.set("i", "jk", "<Esc>", { noremap = true })
 vim.keymap.set("n", "<leader>n", ":nohl<CR>")
 
 -- move lines up and down
-vim.keymap.set("n", "<A-j>", ":m .+1<CR>==")
-vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")
-vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
-vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
-vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
+-- ctrl+shift+j/k to move lines up and down
+vim.keymap.set("n", "<C-K>", ":m .+1<CR>==")
+vim.keymap.set("n", "<C-J>", ":m .-2<CR>==")
+vim.keymap.set("v", "<C-K>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<C-J>", ":m '<-2<CR>gv=gv")
 
 -- select all
 vim.keymap.set("n", "<C-a>", "ggVG")
@@ -43,6 +42,7 @@ vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
 vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
 vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
 vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+vim.keymap.set("n", "<leader>l", "<cmd>lua vim.diagnostic.open_float()<CR>")
 vim.keymap.set("n", "<leader>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 vim.keymap.set("n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
 vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")

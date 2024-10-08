@@ -1,6 +1,5 @@
 return {
   "JoosepAlviste/nvim-ts-context-commentstring",
-  "petertriho/nvim-scrollbar",
   "nvim-tree/nvim-web-devicons",
   {
     "windwp/nvim-autopairs",
