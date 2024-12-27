@@ -13,6 +13,9 @@ return {
 					accept = ";;",
 				},
 			},
+      filetypes = {
+        markdown = true
+      }
 		})
 	end,
 }
