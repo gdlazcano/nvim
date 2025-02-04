@@ -8,6 +8,7 @@ return {
 			python = { "isort", "black" },
 			javascript = { "prettierd" },
 			typescript = { "prettierd" },
+      typescriptreact = { "prettierd" },
 			cpp = { "clang-format" },
 			rust = { "rustfmt" },
 			go = { "gofmt" },
